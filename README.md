@@ -9,6 +9,7 @@ Collection of manuals and documentation for training / fine-tuning various OCR e
 Manuals and documentation for training the OCR engine [Tesseract](https://github.com/tesseract-ocr).
 - `MAN | DEU`: [Training mit Tesseract und Tesstrain](https://github.com/th-schmidt/training-with-tesseract/blob/main/Training-mit-Tesseract.md)
 - `MAN | ENG`: [Training with Tesseract and Tesstrain](https://github.com/th-schmidt/training-with-tesseract/blob/main/Training-with-Tesseract.md)
+- `MAN | ENG`: [Tesseract CLI training with synthetic ground data](https://github.com/UB-Mannheim/charlottenburger-amtsschrifttum/wiki/Work-specific-training-with-Charlottenburger-Amtsschrifttum)
 - `DOC | ENG`: [Tesseract CLI training with ground truth data set *Austrian Newspapers*](https://github.com/UB-Mannheim/AustrianNewspapers/wiki/Training-with-Tesseract)
 
 ## Kraken
