@@ -121,3 +121,95 @@ Result:
 ```
 tesstrain/data/Fracture_Finetune-ground-truth
 ```
+
+![Image](./Images/008.png)
+
+8. Copy the ground truth to be used for fine-tuning into the newly created folder via Windows Explorer / MacOS Finder etc. Alternatively, the command line commands move (`mv`) or copy (`cp`) can be used:
+
+```
+cp -a path/to/GT-data/. path/to/GT-data-folder
+```
+
+Example:
+
+```
+cp -a ~/Example/Folder/Ground-Truth/Fracture_Finetune/. ~/tesstrain/data/Fraktur_Finetune-ground-truth
+```
+
+Result:
+![Image](./Images/009.png)
+
+9. The fine-tuning workflow via tesstrain is triggered via the command line command `$ make training`. The command must be executed from the tesstrain directory.
+10. The execution of the `$ make training` command requires the following basic structure and parameters:
+
+```
+make training MODEL_NAME=name_of_the_retrained_model START_MODEL=name_of_the_existing_base_model TESSDATA=path/to/tessdata/folder GROUND_TRUTH_DIR=path/to/GT_data MAX_ITERATIONS=number_of_training_repeats
+```
+
+Explanation of the parameters:
+
+* `MODEL_NAME` = name of the new (retrained) model; can be freely assigned
+* `START_MODEL` = name of the base model in the tessdata folder without the file extension `.traineddata` (e.g. `fracture` instead of `fracture.traineddata`)
+* `TESSDATA` = path to the `tessdata` folder (or subfolder in the `tessdata` folder) in which the base model is located
+* `GROUND_TRUTH_DIR` = path to the ground truth directory in the `tesstrain/data` folder
+* `MAX_ITERATIONS` = number of repetitions of the training process; the number of repetitions can be freely selected. As a starting point and test, the existing ground truth should be multiplied by a factor of 10 (e.g. 120 ground truth image-line pairs \* 10 = 1200 iterations). As an alternative to `MAX_ITERATIONS`, the parameter `EPOCHS` can also be used; one epoch denotes a complete training run over all ground truth data (one epoch over 120 ground truth image-line pairs thus comprises 120 iterations; 10 epochs = 1200 iterations). Example: `EPOCHS = 10`
+
+Example:
+
+```
+make training MODEL_NAME=Fraktur_Finetune START_MODEL=Fraktur TESSDATA=/usr/local/share/tessdata/tessdata_best/script GROUND_TRUTH_DIR=/home/thschmidt/tesstrain/data/Fraktur_Finetune-ground-truth MAX_ITERATIONS=1200
+```
+
+![Image](./Images/010.png)
+
+11. After confirming the `make training` command, `lstm` and `box` files are created in the Ground Truth folder for each image-text pair to be used for training:
+
+![Image](./Images/011.png)
+
+12. Once this step has been completed, the actual training process begins. By default, a message about the training progress is displayed in the command line after 100 iterations. A checkpoint is saved in `tessdata/data/MODEL_NAME/checkpoints` for larger training progresses.
+
+![Image](./Images/012.png) *Explanations of the data output can be found [here](https://tesseract-ocr.github.io/tessdoc/tess4/TrainingTesseract-4.00.html#iterations-and-checkpoints).*
+
+13. After completion of the training, a further message is displayed showing the `minimum error rate` (`BCER`, Bag-of-Character Error Rate) of the last saved checkpoint.
+
+![Image](./Images/013.png)
+
+14. Finally, the saved checkpoints must be converted into `.traineddata` files. The command `make traineddata` is used for this. The command to convert all checkpoints:
+
+```
+make traineddata MODEL_NAME=<name of the retrained model>
+```
+
+Example:
+
+```
+make traineddata MODEL_NAME=Fracture_Finetune
+```
+
+![Image](./Images/014.png)
+
+The command converts all checkpoints into `.traineddata` files and creates two further folders in the `tessdata/data/MODEL_NAME` folder: `tessdata_best` and `tessdata_fast`. These folders contain the checkpoints / models of the fine-tuning.
+
+![Image](./Images/015.png)
+
+15. For the evaluation of the different checkpoints / models, it is recommended to create a corresponding folder in the `tessdata` directory and move (`mv`) or copy (`cp`) the models into this folder:
+
+```
+cp -a path/to/new_models/. path/to/tessdata-folder/
+```
+
+Example:
+
+```
+cp -a ~/tesstrain/data/Fraktur_Finetune/tessdata_fast/. /usr/local/share/tessdata/Fraktur_Finetune_EVAL
+```
+
+![Image](./Images/016.png)
+
+16. The command `tesseract --list-langs ` now also displays these models and can be used for text recognition via Tesseract:
+
+```
+tesseract --list-langs
+```
+
+![Image](./Images/017.png)
