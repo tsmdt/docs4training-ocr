@@ -15,9 +15,12 @@ It is necessary to understand the area of application of the two training varian
 - **`Fine-tuning`**: Fine-tuning, or work-specific fine-tuning, involves taking an existing model and specifically adapting it to a new use case or domain (*work-specific* in this context means that the fine-tuning is undertaken with a specific work (e.g. a historical document, manuscript or book) or group of similar works in mind). For example, a basic OCR model trained to recognize standard alphanumeric characters can be unable to identify currency symbols like the Euro (€), Pound (£), or Yen (¥). To fine-tune this model for a financial domain, additional training is done using a dataset that includes these specific currency symbols. This process adjusts the model's parameters to become more sensitive to these new symbols, enabling it to accurately recognize and interpret them in financial documents where they frequently appear.
 
 ## 2. How to train in eScriptorium
-
+Training requires 
 
 ### Step 1: Create a new project
+Start with creating a new eScriptorium project.
+
+![Image](./Images/training-eS-01.png)
 ### Step 2: Import your data
 ### Step 3: Test run layout segmentation and text-recognition on your data
 ### Step 4: Search for an existing model that works (somewhat)
