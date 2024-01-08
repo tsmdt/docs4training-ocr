@@ -213,3 +213,105 @@ tesseract --list-langs
 ```
 
 ![Image](./Images/017.png)
+
+## 3. Evaluation of trained models
+
+1. The following is an example of an evaluation of checkpoints / models fine-tuned with Tesseract and Tesstrain. The Python script `evaluate_models.py `, which can be found in the `Skripte` folder of this manual, is used for the evaluation.
+2. Ground truth data that **has not** been used in the training process must be used for the evaluation. (e.g. real book pages on which the newly trained models are to be tested).
+
+Example:
+
+![Image](./Images/018.png)
+
+Notes:
+* The image files must be in `PNG`, `JPG` or `TIF` format.
+* The associated transcription must be available as a `TXT` file and have the file extension `.gt.txt`.
+* The file names of the image and associated text file must be identical, except for the file extensions. Example: `eval_beispiel-01.png` and `eval_beispiel-01.gt.txt`
+
+3. **Evaluation process**: The evaluation starts a text recognition with Tesseract for each ground truth image file (as in the example `eval_example-01.jpg`) provided for the evaluation purpose. The Tesseract models used for text recognition can be specified in advance (= fine-tuned models, as specified in section 2). The results of the text recognition with these models are then compared with the text ground truth (as in the example `eval_example-01.gt.txt`) of the corresponding image. (See section 3.3.)
+
+### 3.1 Setup for evaluation
+1. Create a new folder for the evaluation. The evaluations of the models are saved in this folder. The name of the folder can be freely assigned; for our example we use the folder name `evaluation`:
+
+```
+mkdir evaluation
+```
+
+2. The files `evaluate_models.py` and `requirements.txt` from the scripts folder of these instructions must be copied into this folder.
+
+![Image](./Images/021.png)
+
+3. Installation of the Python script:
+
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+![Image](./Images/022.png)
+
+4. Before each use of the evaluation script `evaluate_models.py`, the virtual Python environment must be started, which was created above with the command `python3 -m venv venv`. To do this, change to the `evaluation` folder and execute the command `source venv/bin/activate`:
+
+```
+cd evaluation
+source venv/bin/activate
+```
+
+![Image](./Images/023.png)
+
+Note: The term `venv` should now appear in front of the user name, indicating that the virtual Python environment has been activated and the evaluation script can be executed.
+
+5. In addition, the evaluations are based on the evaluation reports from ocreval. A step-by-step installation guide for the programme can be found at <https://github.com/eddieantonio/ocreval>.
+
+### 3.2 Providing the ground truth data for the evaluation
+1. Create another folder for the ground truth in the 'evaluation' folder. This folder name can also be freely assigned. For our example, we use `eval-data` and copy the ground truth to be used for the evaluation into this folder:
+
+```
+cd evaluation
+mkdir eval-data
+cp -a ~/path/to/ground-truth/for/evaluation/. ~/evaluation/eval-data
+```
+
+![Image](./Images/024.png)
+
+### 3.3 Performing the evaluation
+
+1. To start the evaluation, the Python script `evaluate_models.py` is executed and the path to the ground truth to be used for the evaluation is specified. The script starts a text recognition with Tesseract via the provided ground truth in the `eval-data` folder and uses the specified Tesseract models for this.
+
+Example:
+
+```
+python3 evaluate_models.py -m 'Fraktur_Finetune_EVAL*' -j 60% -r /home/thschmidt/evaluation/eval-data
+```
+
+Explanation:
+
+* `python3 evaluate_models.py` = starts the Python script
+* `-m 'Fracture_Finetune_EVAL*'` = specifies the folder in the `tessdata` folder in which the Tesseract checkpoints / models that were trained under point 2.2 are stored. The truncation `*` indicates that all models stored in the `Fracture_Finetune_EVAL` folder are to be evaluated
+* `-j 60%` = parallelises the evaluation to speed up the evaluation and in this case uses 60% of the available processor cores
+* `-r` = specifies that all ground truth data existing in the `eval-data` folder should be evaluated
+* `/home/thschmidt/evaluation/eval-data` = path to the folder in which the ground truth provided for the evaluation is stored.
+
+*Note*: the command `python3 evaluate_models.py --help` can be used to display help in the command line, which shows all available parameters of the evaluation script.
+
+2. After starting the Python script, the evaluation is initiated, which can take several minutes depending on the scope of the ground truth used for the evaluation. The progress of the evaluation and the Tesseract models participating in the evaluation are displayed in the command line.
+
+![Image](./Images/025.png)
+
+3. Once the evaluation is complete, the ranking of the models is displayed in the command line.
+
+![Image](./Images/026.png)
+
+Explanation:
+
+* The ranking indicates the error rate of all models separately according to the ground truth data used in the evaluation.
+* The first block shows the result for the ground truth pair `eval_example-01`, the second block shows the result for the ground truth pair `eval_example-02`, the third and last block (`Top models over all`) shows the average best models.
+* The numbers in front of each model indicate the drawing recognition rate of the model. `99.15` means that the model `Fracture_Finetune_1.380000_147_600` in the `tessdata` folder `Fracture_Finetune_EVAL` for the provided ground truth file `eval_example-01.jpg` achieves a character recognition rate of 99.15 %, i.e. generates a character error rate (CER) of 0.85 %.
+* For each image file used in the evaluation, a subfolder was created in the `evaluation/eval-data/` folder, in which the OCR results of the models to be evaluated are stored.
+
+![Image](./Images/027.png)
+
+* The OCR results are available in 'TXT' format and are labelled with the model names that took part in the evaluation.
+
+![Image](./Images/028.png)
