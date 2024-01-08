@@ -1,7 +1,9 @@
 # docs4training-ocr
 Collection of manuals and documentation for training / fine-tuning various OCR engines. 
 
-**Note**: `DOC` refers to documentation of various training processes. `MAN` refers to step-by-step manuals and user guides.
+- `DOC` refers to documentation of various training processes.
+- `MAN` refers to step-by-step manuals and user guides.
+- `ENG`, `DEU` etc. refers to the language of a document.
 
 ## Tesseract
 Manuals and documentation for training the OCR engine [Tesseract](https://github.com/tesseract-ocr).
