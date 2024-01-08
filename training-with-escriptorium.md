@@ -4,5 +4,7 @@
 
 The following step-by-step guide provides an introduction to the use of eScriptorium for training own OCR or HTR models.
 
-## 1.1 Log-In
+## 1. How does OCR / HTR training in eScriptorium work?
+
+
 
