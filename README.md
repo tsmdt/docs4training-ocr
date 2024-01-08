@@ -12,8 +12,9 @@ Manuals and documentation for training the OCR engine [Tesseract](https://github
 - `MAN | ENG`: [Tesseract CLI training with synthetic ground truth data](https://github.com/UB-Mannheim/charlottenburger-amtsschrifttum/wiki/Work-specific-training-with-Charlottenburger-Amtsschrifttum)
 - `DOC | ENG`: [Tesseract CLI training with ground truth data set *Austrian Newspapers*](https://github.com/UB-Mannheim/AustrianNewspapers/wiki/Training-with-Tesseract)
 
-## Kraken
+## Kraken (+ eScriptorium)
 Manuals and documentation for training the OCR engine [Kraken](https://kraken.re/main/index.html).
+- `MAN | ENG`: [Step-by-step guide: Training with eScriptorium](https://github.com/th-schmidt/docs4training-ocr/edit/main/training-with-escriptorium.md)
 - `DOC | ENG`: [Kraken CLI training with ground truth data set *Austrian Newspapers*](https://github.com/UB-Mannheim/AustrianNewspapers/wiki/Training-with-Kraken)
 
 ## Calamari
