@@ -149,7 +149,7 @@ Ergebnis
 
 ![Image](./Images/009.png)
 
- 9. Der Nachtrainingsworkflow via Tesstrain wird über den Kommandozeilen-Befehl `$ make training` angestoßen. Der Befehl muss aus dem tesstrain-Verzeichnis ausgeführt werden.
+9. Der Nachtrainingsworkflow via Tesstrain wird über den Kommandozeilen-Befehl `$ make training` angestoßen. Der Befehl muss aus dem tesstrain-Verzeichnis ausgeführt werden.
 10. Die Ausführung des `$ make training` Befehls bedarf folgender Grundstruktur und Parameter:
 
 ```
@@ -226,7 +226,7 @@ tesseract --list-langs
 
 ## 3. Evaluation trainierter Modelle
 
-1. Im Folgenden wird beispielhaft eine Evaluation von mit Tesseract und Tesstrain (nach-)trainierten Checkpoints / Modellen durchgeführt. Für die Evaluation wird das Python-Skript `evaluate_models.py `verwendet, das sich im Skripte-Ordner dieser Anleitung befindet.
+1. Im Folgenden wird beispielhaft eine Evaluation von mit Tesseract und Tesstrain (nach-)trainierten Checkpoints / Modellen durchgeführt. Für die Evaluation wird das Python-Skript `evaluate_models.py `verwendet, das sich im `Skripte`-Ordner dieser Anleitung befindet.
 2. Für die Evaluation müssen Ground Truth-Daten genutzt werden, die **nicht** im Trainingsprozess verwendet worden sind. (Bspw. reale Buchseiten, an denen die neu trainierten Modelle getestet werden sollen).
 
 Beispiel
@@ -253,7 +253,7 @@ mkdir evaluation
 
 ![Image](./Images/021.png)
 
-3. Installation der Python-Skript:
+3. Installation des Python-Skripts:
 
 ```
 python3 -m venv venv
@@ -270,7 +270,10 @@ pip install -r requirements.txt
    source venv/bin/activate
    ```
 
-   ![Image](./Images/023.png)Hinweis: Vor dem Benutzernamen sollte nun der Begriff `venv` erscheinen, der angibt, dass die virtuelle Pythonumgebung aktiviert wurde und das Evaluationsskript ausgeführt werden kann.
+![Image](./Images/023.png)
+
+Hinweis: Vor dem Benutzernamen sollte nun der Begriff `venv` erscheinen, der angibt, dass die virtuelle Pythonumgebung aktiviert wurde und das Evaluationsskript ausgeführt werden kann.
+
 5. Zusätzlich basieren die Auswertungen auf den Evaluationsreportings von ocreval. Eine Schritt-für-Schritt Installationsanleitung für das Programm findet sich unter <https://github.com/eddieantonio/ocreval>.
 
 ### 3.2. Bereitstellung der Ground-Truth-Daten für die Evaluation
