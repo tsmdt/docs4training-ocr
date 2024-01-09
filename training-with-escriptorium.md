@@ -29,7 +29,7 @@ It is necessary to understand the area of application of the two training varian
 In order to `train from scratch` or to `fine-tune` an existing model you must provide training data (= *ground truth*). In eScriptorium this training data is provided inside a project. Training data consists of **images** (digitised pages of books, manuscripts, documents etc.) and corresponding **transcriptions**. The transcriptions attempt to capture the text content of the images as accurately as possible. If you don't have any ground truth to train with you can create it inside eScriptorium (i.e. create transcriptions for images you upload to an eScriptorium project). 
 
 Here is an example in eScriptorium:
-<img src="./Images/training-eS-03.png" width="100%" height="100%">
+<img src="./Images/training-eS-03.png" width="80%" height="80%">
 
 ### 2.2. Where to find models 
 Especially for fine-tuning already existing layout segmentation or text recognition models are needed. Here is a list of places where `kraken` models (the OCR/HTR engine eScriptorium uses in the background) can be found:
@@ -38,10 +38,10 @@ Especially for fine-tuning already existing layout segmentation or text recognit
 
 All downloaded models can be uploaded to eScriptorium by clicking on **"My Models"** on the upper right corner of the screen. Click on **"Upload a model"** in the next screen an choose the model you want to upload.
 
-<img src="./Images/training-eS-10.png" width="100%" height="100%">
+<img src="./Images/training-eS-10.png" width="80%" height="80%">
 
-## 3. How to fine-tune a text recognition model
-In many cases, `fine-tuning` can be a time- and resource-saving method for improving an existing layout segmentation or text recognition model for a new use case. To perform fine-tuning, an existing (layout segmentation or text recognition) model is required.
+## 3. Fine-tuning in eScriptorium
+In many cases, `fine-tuning` can be a time- and resource-saving method for improving an existing layout segmentation or text recognition model for a new use case. To perform fine-tuning, an existing model is required.
 
 To fine-tune a model in eScriptorium, we recommend the following workflow:
 
@@ -53,51 +53,52 @@ To fine-tune a model in eScriptorium, we recommend the following workflow:
 
 The following steps describe this workflow in detail.
 
-### Step 1: Create a new project and document
+### 3.1. How to fine-tune a text recognition model
+#### Step 1: Create a new project and document
 Start with creating a new eScriptorium project by browsing to the eScriptorium start page and clicking on **"My Projects"** in the upper right corner of the screen.
 
-<img src="./Images/training-eS-00.png" width="50%" height="50%">
+<img src="./Images/training-eS-00.png" width="40%" height="40%">
 
 Next, click on the green **"Create new Project"** button.
 
-<img src="./Images/training-eS-01.png" width="50%" height="50%">
+<img src="./Images/training-eS-01.png" width="40%" height="40%">
 
 Name your project on the next screen and click on **"Create"**.
 
-<img src="./Images/training-eS-04.png" width="100%" height="100%">
+<img src="./Images/training-eS-04.png" width="80%" height="80%">
 
 Once the project has been created, the project overview is displayed. The project you have just created should be displayed here. Click on it.
 
-<img src="./Images/training-eS-05.png" width="100%" height="100%">
+<img src="./Images/training-eS-05.png" width="80%" height="80%">
 
 Create a new document inside your project by clicking on the green **"Create new Document"** button.
 
-<img src="./Images/training-eS-06.png" width="100%" height="100%">
+<img src="./Images/training-eS-06.png" width="80%" height="80%">
 
 On the next screen, give the document a name and click on **"Create"** (or **"Update"**). A message should appear in the upper right corner that the document has been created successfully.
 
-<img src="./Images/training-eS-07.png" width="100%" height="100%">
+<img src="./Images/training-eS-07.png" width="80%" height="80%">
 
-### Step 2: Import your images
+#### Step 2: Import your images
 
 Switch to the **"Images"** tab and upload your images either by clicking into the **"Drop images here or click to upload"** section or by clicking the **"Import"** button.
 
-Here a the difference of both options:
+Here are the difference of both options:
 - `Drop images here or click to upload`: Upload images from your hard drive in different file formats (`PNG`, `JPG`, `TIFF` etc.)
 - `Import` button: Upload images via `IIIF` or as `PDF` documents.
 
-<img src="./Images/training-eS-08.png" width="100%" height="100%">
+<img src="./Images/training-eS-08.png" width="80%" height="80%">
 
 As soon as all images have been uploaded, they will appear as a preview at the bottom of the screen.
 
-<img src="./Images/training-eS-09.png" width="100%" height="100%">
+<img src="./Images/training-eS-09.png" width="80%" height="80%">
 
-### Step 3: Test run layout segmentation and text-recognition on your data
+#### Step 3: Test run layout segmentation and text-recognition on your data
 
 Wo liegen die Modelle (> Zenodo)
 
-### Step 4: Search for an existing model that works (somewhat)
-### Step 5: Create ground truth
-### Step 6: Train
-### Step 7: Test and evaluate
-### Step 8: Iterate
+#### Step 4: Search for an existing model that works (somewhat)
+#### Step 5: Create ground truth
+#### Step 6: Train
+#### Step 7: Test and evaluate
+#### Step 8: Iterate
