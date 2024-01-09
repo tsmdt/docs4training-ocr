@@ -24,7 +24,7 @@ With the provided ground truth you are able to start the training process.
 
 ## 3. How to fine-tune a model in eScriptorium
 
-### Step 1: Create a new project
+### Step 1: Create a new project and document
 Start with creating a new eScriptorium project by browsing to the eScriptorium start page and clicking on **"My Projects"** in the upper right corner of the screen.
 
 <img src="./Images/training-eS-00.png" width="50%" height="50%">
@@ -33,14 +33,36 @@ Next, click on the green **"Create new Project"** button.
 
 <img src="./Images/training-eS-01.png" width="50%" height="50%">
 
-Name your project on the next screen.
+Name your project on the next screen and click on **"Create"**.
 
-<img src="./Images/training-eS-04.png" width="50%" height="50%">
+<img src="./Images/training-eS-04.png" width="100%" height="100%">
 
+Once the project has been created, the project overview is displayed. The project you have just created should be displayed here. Click on it.
 
+<img src="./Images/training-eS-05.png" width="100%" height="100%">
+
+Create a new document inside your project by clicking on the green **"Create new Document"** button.
+
+<img src="./Images/training-eS-06.png" width="100%" height="100%">
+
+On the next screen, give the document a name and click on **"Create"**. A message should appear in the upper right corner that the document has been created successfully.
+
+<img src="./Images/training-eS-07.png" width="100%" height="100%">
 
 ### Step 2: Import your images
+
+Switch to the **"Images"** tab and upload your images either by clicking into the "Drop images here or click to upload" section or by clicking the **"Import"** button.
+
+- `Drop images here or click to upload`: Upload images from your hard drive in different file formats (`PNG`, `JPG`, `TIFF` etc.)
+- `Import` button: Upload images via `IIIF` or as `PDF`.
+
+<img src="./Images/training-eS-08.png" width="100%" height="100%">
+
+
 ### Step 3: Test run layout segmentation and text-recognition on your data
+
+Wo liegen die Modelle (> Zenodo)
+
 ### Step 4: Search for an existing model that works (somewhat)
 ### Step 5: Create ground truth
 ### Step 6: Train
