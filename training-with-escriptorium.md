@@ -17,7 +17,7 @@ The following step-by-step guide provides an introduction to the use of eScripto
 
 ## 1. How does training work?
 
-For all automated layout segmentation and text recognition tasks, eScriptorium uses the open-source OCR/HTR engine [Kraken](https://kraken.re/main/index.html). The models used for layout segmentation and text recognition can be trained directly in eScriptorium with just a few clicks. Both completely new models can be trained (*training from scratch*) and existing models can be fine-tuned (*fine-tuning*) for specific use cases or domains. The training of OCR models is often carried out via the command line and requires appropriate knowledge. Since eScriptorium provides a graphical user interface, users without command line knowledge can also carry out trainings. 
+For all automated layout segmentation and text recognition tasks, eScriptorium uses the open-source OCR/HTR engine [Kraken](https://kraken.re/main/index.html). The models used for layout segmentation and text recognition can be trained directly in eScriptorium with just a few clicks. Both completely new models can be trained (`training from scratch`) and existing models can be fine-tuned (`fine-tuning`) for specific use cases or domains. The training of OCR models is often carried out via the command line and requires appropriate knowledge. Since eScriptorium provides a graphical user interface, users without command line knowledge can also carry out trainings. 
 
 It is necessary to understand the area of application of the two training variants mentioned: 
 
