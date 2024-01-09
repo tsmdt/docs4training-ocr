@@ -10,9 +10,10 @@ The following step-by-step guide provides an introduction to the use of eScripto
 2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium) <br/>
    2.1. [Provide or create training data (ground truth)](#21-provide-or-create-training-data-ground-truth) <br/>
    2.2. [Where to find models](#22-where-to-find-models)
-3. [How to fine-tune a text recognition model](#3-how-to-fine-tune-a-model) <br/>
-4. [How to fine-tune a layout segmentation model](#3-how-to-fine-tune-a-model) <br/>
-5. How to train a model from scratch
+3. [Fine-tuning in eScriptorium](#3-fine-tuning-in-escriptorium) <br/>
+   3.1. [How to fine-tune a text recognition model](#3-how-to-fine-tune-a-model) <br/>
+   3.2. [How to fine-tune a layout segmentation model](#3-how-to-fine-tune-a-model) <br/>
+4. [Training from scratch in eScriptorium](#3-fine-tuning-in-escriptorium) <br/>
 
 ## 1. How does training work?
 
