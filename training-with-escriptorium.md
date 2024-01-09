@@ -15,29 +15,34 @@ It is necessary to understand the area of application of the two training varian
 - **`Fine-tuning`**: Fine-tuning, or work-specific fine-tuning, involves taking an existing model and specifically adapting it to a new use case or domain (*work-specific* in this context means that the fine-tuning is undertaken with a specific work (e.g. a historical document, manuscript or book) or group of similar works in mind). For example, a basic OCR model trained to recognize standard alphanumeric Latin characters can be unable to identify currency symbols like the Euro (€), Pound (£), or Yen (¥). To fine-tune this model for a financial domain, additional training is done using a dataset that includes these specific currency symbols. This process adjusts the model's parameters to become more sensitive to these new symbols, enabling it to accurately recognize and interpret them in financial documents where they frequently appear.
 
 ## 2. How to train in eScriptorium
-### 2.1. Provide ground truth
-In order to `train from scratch` or to `fine-tune` an existing model you must provide training data (= *ground truth*). In eScriptorium this training data is provided inside a project. Training data consists of **images** (digitised pages of books, manuscripts, documents etc.) and corresponding **transcriptions**. The transcriptions attempt to capture the text content of the images as accurately as possible. Here is an example in eScriptorium:
+In order to `train from scratch` or to `fine-tune` an existing model you must provide training data (= *ground truth*). In eScriptorium this training data is provided inside a project. Training data consists of **images** (digitised pages of books, manuscripts, documents etc.) and corresponding **transcriptions**. The transcriptions attempt to capture the text content of the images as accurately as possible. If you don't have any ground truth to train with you can create it inside eScriptorium (i.e. create transcriptions for images you upload to an eScriptorium project). 
 
-![Image](./Images/training-eS-03.png)
+Here is an example in eScriptorium:
+<img src="./Images/training-eS-03.png" width="100%" height="100%">
 
-### 2.2. Start 
-
-
+With the provided ground truth you are able to start the training process. 
 
 ## 3. How to fine-tune a model in eScriptorium
 
 ### Step 1: Create a new project
-Start with creating a new eScriptorium project by browsing to the eScriptorium start page and clicking on "My Projects" in the upper right corner of the screen.
+Start with creating a new eScriptorium project by browsing to the eScriptorium start page and clicking on **"My Projects"** in the upper right corner of the screen.
 
-![Image](./Images/training-eS-00.png)
+<img src="./Images/training-eS-00.png" width="50%" height="50%">
+
+Next, click on the green **"Create new Project"** button.
+
+<img src="./Images/training-eS-01.png" width="50%" height="50%">
+
+Name your project on the next screen.
+
+<img src="./Images/training-eS-04.png" width="50%" height="50%">
 
 
 
-![Image](./Images/training-eS-01.png)
-### Step 2: Import your data
+### Step 2: Import your images
 ### Step 3: Test run layout segmentation and text-recognition on your data
 ### Step 4: Search for an existing model that works (somewhat)
-### Step 5: Create Ground Truth
+### Step 5: Create ground truth
 ### Step 6: Train
 ### Step 7: Test and evaluate
 ### Step 8: Iterate
