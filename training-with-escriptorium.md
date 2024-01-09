@@ -34,7 +34,7 @@ Here is an example in eScriptorium:
 
 The transcriptions attempt to capture the text content of the images as accurately as possible. If you don't have any ground truth to train with you can create it inside eScriptorium (i.e. create transcriptions for images you upload to an eScriptorium project). 
 
-**NOTE:** A detailed approach to creating ground truth in eScriptorium can be found in **Step 5: Creating ground truth** of chapter 3.1.
+**NOTE:** A detailed approach to creating ground truth in eScriptorium can be found in `Step 5: Creating ground truth` of `Chapter 3.1.`
 
 ### 2.2. Where to find models 
 Especially for fine-tuning already existing layout segmentation or text recognition models are needed. Here is a list of places where `kraken` models (the OCR/HTR engine eScriptorium uses in the background) can be found:
