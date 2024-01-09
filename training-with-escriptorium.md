@@ -1,14 +1,18 @@
-# Training with eScriptorium (*step-by-step guide*)
+# Training with eScriptorium (*a step-by-step guide*)
 
 *eScriptorium is a platform for manual or automated segmentation and text recognition of historical manuscripts and prints* [[Wikipedia](https://de.wikipedia.org/wiki/EScriptorium)]. In addition, the platform enables user-friendly training and (work-specific) fine-tuning of own layout segmentation and text recognition models directly in the browser. eScriptorium is open-source and free of charge. The trained models can be downloaded and used without restrictions.
 
 The following step-by-step guide provides an introduction to the use of eScriptorium for training own OCR or HTR models.
 
-# Table of Contents
+# Contents
 
 1. [How does training work?](#1-how-does-training-work)
-2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium)
-
+2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium) <br/>
+   2.1. [Provide or create training data (ground truth)](#21-provide-or-create-training-data-ground-truth) <br/>
+   2.2. [Where to find models](#22-where-to-find-models)
+3. [How to fine-tune a text recognition model](#3-how-to-fine-tune-a-model) <br/>
+4. [How to fine-tune a layout segmentation model](#3-how-to-fine-tune-a-model) <br/>
+5. How to train a model from scratch
 
 ## 1. How does training work?
 
@@ -36,7 +40,7 @@ All downloaded models can be uploaded to eScriptorium by clicking on **"My Model
 
 <img src="./Images/training-eS-10.png" width="100%" height="100%">
 
-## 3. How to fine-tune a model
+## 3. How to fine-tune a text recognition model
 In many cases, `fine-tuning` can be a time- and resource-saving method for improving an existing layout segmentation or text recognition model for a new use case. To perform fine-tuning, an existing (layout segmentation or text recognition) model is required.
 
 To fine-tune a model in eScriptorium, we recommend the following workflow:
