@@ -6,7 +6,8 @@ The following step-by-step guide provides an introduction to the use of eScripto
 
 # Table of Contents
 
-1. [How does training work?](#1-How-does-training-work?)
+1. [How does training work?](#1-how-does-training-work)
+2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium)
 
 
 ## 1. How does training work?
