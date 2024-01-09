@@ -27,10 +27,14 @@ It is necessary to understand the area of application of the two training varian
 
 ## 2. How to train in eScriptorium
 ### 2.1. Provide or create training data (ground truth)
-In order to `train from scratch` or to `fine-tune` an existing model you must provide training data (= *ground truth*). In eScriptorium this training data is provided inside a project. Training data consists of **images** (digitised pages of books, manuscripts, documents etc.) and corresponding **transcriptions**. The transcriptions attempt to capture the text content of the images as accurately as possible. If you don't have any ground truth to train with you can create it inside eScriptorium (i.e. create transcriptions for images you upload to an eScriptorium project). 
+In order to `train from scratch` or to `fine-tune` an existing model you must provide training data (= *ground truth*). In eScriptorium this training data is provided inside a project. Training data consists of **images** (digitised pages of books, manuscripts, documents etc.) and corresponding **transcriptions**. 
 
 Here is an example in eScriptorium:
 <img src="./Images/training-eS-03.png" width="80%" height="80%">
+
+The transcriptions attempt to capture the text content of the images as accurately as possible. If you don't have any ground truth to train with you can create it inside eScriptorium (i.e. create transcriptions for images you upload to an eScriptorium project). 
+
+**NOTE:** A detailed approach to creating ground truth in eScriptorium can be found in **Step 5: Creating ground truth** of chapter 3.1.
 
 ### 2.2. Where to find models 
 Especially for fine-tuning already existing layout segmentation or text recognition models are needed. Here is a list of places where `kraken` models (the OCR/HTR engine eScriptorium uses in the background) can be found:
