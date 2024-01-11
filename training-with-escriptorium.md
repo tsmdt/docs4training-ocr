@@ -10,18 +10,17 @@ The following step-by-step guide provides an introduction to the use of eScripto
 0. [Who is this guide for?](#0-who-is-this-guide-for)
 1. [How does training work?](#1-how-does-training-work)
 2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium)
-   2.1. [Provide or create training data (ground truth)](#21-provide-or-create-training-data-ground-truth) 
-   2.2. [Where to find models](#22-where-to-find-models)
-   2.3. [How to choose a model for a specific use case](#23-how-to-choose-a-model-for-a-specific-use-case)
-3. [Fine-tuning in eScriptorium](#3-fine-tuning-in-escriptorium)
-   3.1. [How to fine-tune a text recognition model](#31-how-to-fine-tune-a-text-recognition-model)
-   3.2. [How to fine-tune a layout segmentation model](#32-how-to-fine-tune-a-layout-segmentation-model)
+2.1. [Provide or create training data (ground truth)](#21-provide-or-create-training-data-ground-truth)
+2.2. [Where to find models](#22-where-to-find-models)
+2.3. [How to choose a model for a specific use case](#23-how-to-choose-a-model-for-a-specific-use-case) 
+3. [Fine-tuning in eScriptorium](#3-fine-tuning-in-escriptorium) 
+3.1. [How to fine-tune a text recognition model](#31-how-to-fine-tune-a-text-recognition-model)
+3.2. [How to fine-tune a layout segmentation model](#32-how-to-fine-tune-a-layout-segmentation-model)
 4. [Training from scratch in eScriptorium](#4-training-from-scratch-in-escriptorium)
-5. [Additional hints and tips]()
-   5.1. [Using the virtual keyboard in eScriptorium](#51-using-the-virtual-keyboard-in-escriptorium)
-   5.2. [Ground truth guidelines for text recogntion](#52-ground-truth-guidelines-for-text-recogntion)
-   5.3. [Ground truth guidelines for layout segmentation](#53-ground-truth-guidelines-for-layout-segmentation)
-6. [License](#6-license)
+5. [Additional tips](#5-additional-tips)
+5.1. [Using the virtual keyboard in eScriptorium](#51-using-the-virtual-keyboard-in-escriptorium) 
+5.2. [Ground truth guidelines for transcriptions](#52-ground-truth-guidelines-for-transcriptions) 
+6. [License](#6-license) 
 
 ## 0. Who is this guide for?
 This guide is for *intermediate* eScriptorium users with a basic understanding of the graphical interface and functionality of the platform. A video tutorial that introduces the main functions and tools can be found on YouTube: [youtube.com/watch?v=aQuwh3OaKqg](https://www.youtube.com/watch?v=aQuwh3OaKqg) (automatically generated subtitles in English are available). It should be sufficient to follow this guide.
@@ -289,12 +288,15 @@ After the first text line has been corrected, press the `Enter ↲` key to check
 
 After you have finished correcting the current page, proceed with the next one. *Be sure to follow all instructions of `step 10` (i.e. using the "manual" transcription workflow).*
 
-#### How much training data (ground truth) do I need for fine-tuning?
+#### Addendum 1: How much training data (ground truth) do I need?
 > Experience has shown that even a **small amount of training data** is enough to start fine-tuning an existing text recognition model. With regard to fine-tuning, an **iterative approach** should be followed: 
 > 1. Create 2 to 3 pages of training data by correcting the automatically generated transcriptions as shown in step 10. 
 > 2. [Fine-tune the text recognition model](#step-11-fine-tune-a-text-recognition-model) you have used in step 8 with the corrected ground truth . 
 > 3. [Test and evaluate](#step-12-re-run-text-recognition-and-evaluate-your-fine-tuned-model) if the fine-tuned model yields better transcriptions on your data than before.
-> 4. If not, repeat 1 to 3 to create more training data. Fine-tune new models and evaluate them on your data until the results are satisfactory.
+> 4. If not, repeat 1 to 3 to create more training data. Fine-tune new models and evaluate them on your data until the results are satisfactory. 
+
+#### Addendum 2: Always follow transcription guidelines!
+> Transcription guidelines are a set of rules and instructions provided to individuals who are manually transcribing or annotating text from various sources. These guidelines serve to standardize the transcription process, ensuring consistency, accuracy, and clarity in the resulting transcribed data. Guidelines should be used for both the creation and correction of transcriptions. Refer to the chapter [Ground truth guidelines for transcriptions](#52-ground-truth-guidelines-for-transcriptions) to learn more.
 
 #### Step 11: Fine-tune a text recognition model
 
@@ -338,10 +340,31 @@ The model you are currently training will appear in this overview. By clicking o
 
 ## 4. Training from scratch in eScriptorium
 
-## 5. Additional hints and tips
+## 5. Additional tips
 
 ### 5.1. Using the virtual keyboard in eScriptorium
-### 5.2. Ground truth guidelines for text recogntion
-### 5.3. Ground truth guidelines for layout segmentation
+### 5.2. Ground truth guidelines for transcriptions
+#### What are transcription guidelines?
+Transcription guidelines are a set of rules and instructions provided to individuals who are manually transcribing or annotating text from various sources. These guidelines serve to standardize the transcription process, ensuring consistency, accuracy, and clarity in the resulting transcribed data. 
+
+#### Why should you use transcription guidelines?
+- **Improved text recognition accuracy**: Transcription guidelines help maintain consistency and standardization in how text is transcribed. This consistency reduces errors and discrepancies in the ground truth data, which in turn leads to higher OCR accuracy.
+- **Better ground truth quality**: Well-defined guidelines help human transcribers understand how to handle ambiguous cases, special characters, and complex formatting. This results in higher-quality training data, with fewer transcription errors and better alignment with the OCR system's expectations.
+- **Ensured data consistency**: When multiple individuals are involved in creating ground truth data, transcription guidelines ensure that they all follow the same rules and conventions. This consistency is essential for training robust OCR models, as discrepancies in the data can lead to confusion during training, which can result in less accurate text recognition modles.
+- **Better validation and evaluation**: When you have well-documented transcription guidelines, it becomes easier to validate and evaluate the performance of your OCR model. You can compare the OCR output to the ground truth data using established criteria, making it clear whether the system is meeting your accuracy requirements.
+
+#### Best practices
+The [OCR-D Ground Truth Guidelines](https://ocr-d.de/en/gt-guidelines/trans/) are a good starting point for developing project specific transcription guidelines. The guidelines are organized into three distinct levels to help replicate the unique characteristics of printed text in a transcription. These characteristics can be reproduced with varying degrees of complexity, which is represented by the three OCR-D ground truth levels. 
+
+To illustrate this concept, consider the following example:
+
+| Image | Level 1 | Level 2 | Level 3 |
+|-------|---------|---------|---------|
+<img src="./Images/training-eS-39.png" width="90"><br/>|`dass`|`daſs`|`daſs`|
+
+As you can see, a transcription of the image produces different results when transcribing according to level 1 or level 2 / 3 of the OCR-D GT guidelines. In other words: transcriptions are *standardized* by using one of the three different levels.
+
+> **Note:** In every project, decisions need to be made regarding the **transcription of print-specific features** (in the example above, *the representation of the long 's'* that regularly appears in German works printed in Fraktur). The OCR-D guidelines are a valuable resource for providing initial guidance in this regard. Furthermore, they collect real world examples, that might help in creating your own guidelines.
+
 ## 6. License
 This guide is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
