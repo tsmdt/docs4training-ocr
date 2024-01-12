@@ -396,6 +396,7 @@ A comparison of the two selected transcriptions for the currently displayed text
 #### Step 13: Iterate 
 If the evaluation of `step 12` produced unsatisfactory results, try iterating `steps 10-12`, i.e. create more training data by correcting the transcriptions of additional pages and fine-tune another model with this data.
 
+Check [Addendum 1: How much training data (ground truth) do I need?](#addendum-1-how-much-training-data-ground-truth-do-i-need) for more details.
 
 ### 3.2. How to fine-tune a layout segmentation model 
 
