@@ -7,19 +7,19 @@ The following step-by-step guide provides an introduction to the use of eScripto
 
 # Contents
 
-0. [Who is this guide for?](#0-who-is-this-guide-for)
-1. [How does training work?](#1-how-does-training-work)
-2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium)
-2.1. [Provide or create training data (ground truth)](#21-provide-or-create-training-data-ground-truth)
-2.2. [Where to find models](#22-where-to-find-models)
-2.3. [How to choose a model for a specific use case](#23-how-to-choose-a-model-for-a-specific-use-case) 
-3. [Fine-tuning in eScriptorium](#3-fine-tuning-in-escriptorium) 
-3.1. [How to fine-tune a text recognition model](#31-how-to-fine-tune-a-text-recognition-model)
-3.2. [How to fine-tune a layout segmentation model](#32-how-to-fine-tune-a-layout-segmentation-model)
-4. [Training from scratch in eScriptorium](#4-training-from-scratch-in-escriptorium)
-5. [Additional tips](#5-additional-tips)
-5.1. [Using the virtual keyboard in eScriptorium](#51-using-the-virtual-keyboard-in-escriptorium) 
-5.2. [Ground truth guidelines for transcriptions](#52-ground-truth-guidelines-for-transcriptions) 
+0. [Who is this guide for?](#0-who-is-this-guide-for)<br/>
+1. [How does training work?](#1-how-does-training-work)<br/>
+2. [How to train in eScriptorium?](#2-how-to-train-in-escriptorium)<br/>
+2.1. [Provide or create training data (ground truth)](#21-provide-or-create-training-data-ground-truth)<br/>
+2.2. [Where to find models](#22-where-to-find-models)<br/>
+2.3. [How to choose a model for a specific use case](#23-how-to-choose-a-model-for-a-specific-use-case) <br/>
+3. [Fine-tuning in eScriptorium](#3-fine-tuning-in-escriptorium) <br/>
+3.1. [How to fine-tune a text recognition model](#31-how-to-fine-tune-a-text-recognition-model)<br/>
+3.2. [How to fine-tune a layout segmentation model](#32-how-to-fine-tune-a-layout-segmentation-model)<br/>
+4. [Training from scratch in eScriptorium](#4-training-from-scratch-in-escriptorium)<br/>
+5. [Additional tips](#5-additional-tips)<br/>
+5.1. [Using the virtual keyboard in eScriptorium](#51-using-the-virtual-keyboard-in-escriptorium) <br/>
+5.2. [Ground truth guidelines for transcriptions](#52-ground-truth-guidelines-for-transcriptions) <br/>
 6. [License](#6-license) 
 
 ## 0. Who is this guide for?
@@ -78,7 +78,7 @@ Here are some points for orientation that can help with the assessment of a mode
 - Which **languages** (e.g. English, German, Hebrew ...) and **writing systems** (e.g. Latin, Arabic, Chinese ...) does the model cover?
 - Which **historical period** and which **historical typefaces** does the model cover? (i.e. is the model suitable for recognising Fraktur fonts, for example?)
 
-> **Note:** As a rule of thumb try testing **generic models** first for your use case. *Generic* or *base models* are usually trained on a wide variety of data (different documents, typefaces etc.) of a specific domain (e.g. printed documents in French of the 18th century). If the model name and description somewhat fit the use case at hand, try testing that generic model first.
+> **Note:** As a rule of thumb try testing **generic models** first for your use case. *Generic* or *base models* are usually trained on a wide variety of data (different documents, typefaces etc.) of a specific domain (e.g. printed documents in French of the 18th century). If the model name and description somewhat fits the use case at hand, try testing that generic model first.
 
 ## 3. Fine-tuning in eScriptorium
 In many cases, `fine-tuning` can be a time- and resource-efficient method for improving an existing layout segmentation or text recognition model for a new use case. In order to carry out fine-tuning, an existing model is required, which is adapted to the new use case during the fine-tuning training process. 
@@ -247,7 +247,7 @@ If you hover your mouse cursor over one of the text lines in the transcription v
 
 <img src="./Images/training-eS-28.png" width="80%" height="80%"><br/>
 
-Clicking on a text line in the transcription preview will open a pop-up:
+Clicking on a text line in the transcription view will open a pop-up:
 
 <img src="./Images/training-eS-29.png" width="80%" height="80%"><br/>
 
@@ -294,6 +294,17 @@ After you have finished correcting the current page, proceed with the next one. 
 > 2. [Fine-tune the text recognition model](#step-11-fine-tune-a-text-recognition-model) you have used in step 8 with the corrected ground truth . 
 > 3. [Test and evaluate](#step-12-re-run-text-recognition-and-evaluate-your-fine-tuned-model) if the fine-tuned model yields better transcriptions on your data than before.
 > 4. If not, repeat 1 to 3 to create more training data. Fine-tune new models and evaluate them on your data until the results are satisfactory. 
+>
+> An **example workflow** with iterations can look like this:
+> 1. Create 2 pages of training data by correcting transcriptions that were generating using a text recognition model
+> 2. Fine-tune the text recognition model you have already used with those 2 pages of training data
+> 3. Evaluate if the fine-tuned model produces better transcriptions
+> 4. If the results are better but still need improvement, create additional training data, e.g. another 4 pages 
+> 5. Fine-tune the first model again with your 6 pages of ground truth
+> 6. Evaluate if the second fine-tuned model produces better transcriptions
+> 7. Continue by iterating ...
+>
+> **Note:** At first glance this process looks time consuming, as you have to repeat certain steps – creating of training data, training itself, evaluation – again. Although this is true, iteration can ultimately lead to a rapid improvement of the generated transcripts, as the fine-tuned models get better with each training and thus generate fewer transcription errors that need to be improved.
 
 #### Addendum 2: Always follow transcription guidelines!
 > Transcription guidelines are a set of rules and instructions provided to individuals who are manually transcribing or annotating text from various sources. These guidelines serve to standardize the transcription process, ensuring consistency, accuracy, and clarity in the resulting transcribed data. Guidelines should be used for both the creation and correction of transcriptions. Refer to the chapter [Ground truth guidelines for transcriptions](#52-ground-truth-guidelines-for-transcriptions) to learn more.
@@ -325,7 +336,7 @@ Lastly, click on the blue **"Train"** button to start the fine-tuning.
 
 A running training is shown as below:
 
-<img src="./Images/training-eS-37.png" width="80%" height="80%"><br/>
+<img src="./Images/training-eS-37.png" width="100%" height="100%"><br/>
 
 If you want to view the training progress, click on **"My models"**:
 
@@ -334,7 +345,57 @@ If you want to view the training progress, click on **"My models"**:
 The model you are currently training will appear in this overview. By clicking on the button **"Toggle versions"** you can view all currently finished training epochs as well. You will be notified as soon as the training has finished.
 
 #### Step 12: Re-run text recognition and evaluate your fine-tuned model
+After the training has finished your fine-tuned text recognition model becomes available for testing. This step helps identifiying if the fine-tuned model produces better results than the previously used base model in `step 8`.
+
+1. Switch back to your document and click on the **"Images"** tab.
+2. Click on the **"Select all"** button to select all available images.
+3. Click on the blue **"Transcribe"** button.
+
+<img src="./Images/training-eS-23.png" width="80%" height="80%">
+
+A pop-up should appear that lets you choose a text recogntion model:
+
+<img src="./Images/training-eS-40.png" width="80%" height="80%"><br/>
+
+- **Select a model**: Choose a the model you have fine-tuned in `step 11`
+- **Select a transcription**: Select `--New--`
+
+Click on the blue **"Transcribe"** button to start the automatic text recognition.
+
+An orange-coloured button in the image preview shows the running text recognition. As soon as the text recognition for a page is complete, a message (*"Transcription done!"*) appears in the top right-hand corner of the screen.
+
+<img src="./Images/training-eS-26.png" width="80%" height="80%"><br/>
+
+Once text recognition has been completed, check the generated transcriptions.
+
+1. Click on the **Edit** tab.
+2. Next, click on the **"Segmentation view"** button in order to deactivate the layout segmentation view. 
+3. Click on the **"Transcription view"** button afterwards to activate the transcription view.
+4. Choose the transcription you created with your fine-tuned model in the drop-down menu. 
+
+<img src="./Images/training-eS-41.png" width="80%" height="80%"><br/>
+
+Evaluate the accuracy of your fine-tuned model by comparing the transcriptions of the base model you have used in `step 8` versus the transcriptions you just generated with your fine-tuned model.
+
+To do this, click on the blue **"cogwheel icon"** next to the drop-down for the transcription selection:
+
+<img src="./Images/training-eS-42.png" width="80%" height="80%"><br/>
+
+Select the transcription you created in `step 8` (the transcription of your base model) and the transcription you have just created using your fine-tuned model:
+
+<img src="./Images/training-eS-43.png" width="80%" height="80%"><br/>
+
+Exit the pop-up by clicking on the **"x"** in the top right corner.
+
+Click on a text line in the transcription view to open the eidtor pop-up and click on the **"Toggle transcription comparison"** link.
+
+<img src="./Images/training-eS-44.png" width="80%" height="80%"><br/>
+
+A comparison of the two selected transcriptions for the currently displayed text line is now shown in the lower part of the pop-up. Highlighted characters show transcription differences between the two versions so that the transcription result of the fine-tuned model can be checked quickly, in order to assess if the fine-tuning produced better results than the base model.
+
 #### Step 13: Iterate 
+If the evaluation of `step 12` produced unsatisfactory results, try iterating `steps 10-12`, i.e. create more training data by correcting the transcriptions of additional pages and fine-tune another model with this data.
+
 
 ### 3.2. How to fine-tune a layout segmentation model 
 
