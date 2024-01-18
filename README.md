@@ -14,7 +14,7 @@ Manuals and documentation for training the OCR engine [Tesseract](https://github
 
 ## Kraken (+ eScriptorium)
 Manuals and documentation for training the OCR engine [Kraken](https://kraken.re/main/index.html).
-- `MAN | ENG`: [Step-by-Step Guide: Training with eScriptorium](https://github.com/th-schmidt/eScriptorium_Dokumentation/blob/main/Training-with-eScriptorium.md)
+- `MAN | ENG`: [Step-by-Step Guide: Training with eScriptorium](https://github.com/UB-Mannheim/eScriptorium_Dokumentation/blob/main/Training-with-eScriptorium.md)
 - `DOC | ENG`: [Kraken CLI training with ground truth data set *Austrian Newspapers*](https://github.com/UB-Mannheim/AustrianNewspapers/wiki/Training-with-Kraken)
 
 ## Calamari
