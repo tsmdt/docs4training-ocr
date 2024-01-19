@@ -1,5 +1,5 @@
 # docs4training-ocr
-Collection of manuals and documentation for training / fine-tuning various OCR engines. 
+A collection of manuals and documentation for training / fine-tuning various OCR engines that were created by [University Library Mannheim](https://www.bib.uni-mannheim.de/en/) during the 3rd phase of the [OCR-D project](https://ocr-d.de/en/) and funded by funded by the [German Research Foundation (DFG)](https://www.dfg.de/foerderung/info_wissenschaft/2020/info_wissenschaft_20_15/index.html).
 
 - `DOC` refers to documentation of various training processes.
 - `MAN` refers to step-by-step manuals and user guides.
